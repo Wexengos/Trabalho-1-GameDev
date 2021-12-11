@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using System;
+
 public class BasicMovement : MonoBehaviour
 {
     public bool facingRight = true;  //O personagem está olhando para a direita?
@@ -9,7 +11,11 @@ public class BasicMovement : MonoBehaviour
     public float jumpHeight;
     private bool isGrounded;  //O personagem está num chão?
 
+    public double abyss = -7.5;
+
     public Animator animator;
+
+    public int lives = 3;
 
     float isFacingRight(float xScale)
     {                         //Verifica: se o personagem estiver se movendo para um lado e
@@ -48,10 +54,12 @@ public class BasicMovement : MonoBehaviour
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, jumpHeight), ForceMode2D.Force);  //checa se o personagem está no chão,
                                                                                                      //se sim, o botão de espaço o faz pular.
         }
+
+        FallDeath();
     }
-                             //Há uma caixa de colisão com um 'Is Trigger' que envolve o jogador, que é ativado toda vez que este colide.
-    void OnTriggerEnter2D()  
-    {                        
+    //Há uma caixa de colisão com um 'Is Trigger' que envolve o jogador, que é ativado toda vez que este colide.
+    void OnTriggerEnter2D()
+    {
         isGrounded = true;   //Se o jogador toca o chão, ele está no chão.
     }
     void OnTriggerStay2D()
@@ -61,5 +69,21 @@ public class BasicMovement : MonoBehaviour
     void OnTriggerExit2D()
     {
         isGrounded = false;  //Se ele deixa o chão, não pode pular, pois já está caindo/pulando.
+    }
+
+    void FallDeath()
+    {
+        if (transform.position.y <= abyss)
+        {
+            Debug.Log("Foi Brabo Pica");
+            transform.position = new Vector3(-5.28f, -2.42f, 0.0f);
+
+        }
+    }
+
+    void ComputeDeath()
+    {
+        if (lives > 0)
+            lives--;
     }
 }
