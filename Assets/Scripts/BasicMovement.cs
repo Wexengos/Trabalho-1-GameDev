@@ -55,6 +55,12 @@ public class BasicMovement : MonoBehaviour
 
         FallDeath();
     }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        if(other.gameObject.tag == "Enemy"){
+            ComputeDeath();
+        }
+    }
     //Há uma caixa de colisão com um 'Is Trigger' que envolve o jogador, que é ativado toda vez que este colide.
     void OnTriggerEnter2D()
     {
@@ -73,7 +79,6 @@ public class BasicMovement : MonoBehaviour
     {
         if (transform.position.y <= abyss)
         {
-            Debug.Log("Foi Brabo Pica");
             ComputeDeath();
         }
     }
