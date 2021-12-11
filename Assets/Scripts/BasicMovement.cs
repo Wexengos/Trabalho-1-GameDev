@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using System;
-
 public class BasicMovement : MonoBehaviour
 {
     public bool facingRight = true;  //O personagem está olhando para a direita?
@@ -76,13 +74,13 @@ public class BasicMovement : MonoBehaviour
         if (transform.position.y <= abyss)
         {
             Debug.Log("Foi Brabo Pica");
-            transform.position = new Vector3(-5.28f, -2.42f, 0.0f);
-
+            ComputeDeath();
         }
     }
 
     void ComputeDeath()
     {
+        transform.position = new Vector3(-5.28f, -2.42f, 0.0f);
         if (lives > 0)
             lives--;
     }
