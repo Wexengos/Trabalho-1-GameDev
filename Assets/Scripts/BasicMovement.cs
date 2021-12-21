@@ -6,12 +6,14 @@ public class BasicMovement : MonoBehaviour
 {
     public bool facingRight = true;  //O personagem está olhando para a direita?
 
+    public GameObject bulletPrefab;
     public float jumpHeight;
     private bool isGrounded;  //O personagem está num chão?
 
     public double abyss = -7.5;
 
     public Animator animator;
+    GameObject bullet;
 
     public int lives = 3;
 
@@ -34,6 +36,14 @@ public class BasicMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Z)){
+            bullet = Object.Instantiate(bulletPrefab);
+            bullet.transform.position = transform.position + new Vector3(1.0f, 0.0f, 0.0f);
+        }
+        if(bullet){
+            Vector3 bulletSide = new Vector3(6, 0.0f, 0.0f);
+            bullet.transform.position = bullet.transform.position + bulletSide * Time.deltaTime;
+        }
 
         float xScale = transform.localScale.x;
         float yScale = transform.localScale.y;

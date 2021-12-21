@@ -27,7 +27,6 @@ public class PatrollingEgg : MonoBehaviour
     {
         RecalculateValue();
         Vector3 side = new Vector3(xScale, 0.0f, 0.0f);
-
         transform.position = transform.position + side * Time.deltaTime;
     }
 
