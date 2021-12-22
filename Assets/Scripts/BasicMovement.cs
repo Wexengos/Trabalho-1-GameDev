@@ -16,6 +16,7 @@ public class BasicMovement : MonoBehaviour
     GameObject bullet;
 
     public int lives = 3;
+    Vector3 bulletSide;
 
     float isFacingRight(float xScale)
     {                         //Verifica: se o personagem estiver se movendo para um lado e
@@ -37,11 +38,20 @@ public class BasicMovement : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Z)){
+            if(bullet){
+                Destroy(bullet);
+            }
             bullet = Object.Instantiate(bulletPrefab);
-            bullet.transform.position = transform.position + new Vector3(1.0f, 0.0f, 0.0f);
+            if(facingRight){
+                bulletSide = new Vector3(6, 0.0f, 0.0f);
+                bullet.transform.position = transform.position + new Vector3(1.0f, 0.0f, 0.0f);
+            }
+            else{
+                bulletSide = new Vector3(-6, 0.0f, 0.0f);
+                bullet.transform.position = transform.position + new Vector3(-1.0f, 0.0f, 0.0f);
+            }
         }
         if(bullet){
-            Vector3 bulletSide = new Vector3(6, 0.0f, 0.0f);
             bullet.transform.position = bullet.transform.position + bulletSide * Time.deltaTime;
         }
 
