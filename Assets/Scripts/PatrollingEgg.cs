@@ -35,4 +35,6 @@ public class PatrollingEgg : MonoBehaviour
         if (Time.frameCount % lastRecalculation == 0)
             xScale *= -1;
     }
+
+
 }

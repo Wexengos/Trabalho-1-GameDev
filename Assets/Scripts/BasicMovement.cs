@@ -42,6 +42,8 @@ public class BasicMovement : MonoBehaviour
                 Destroy(bullet);
             }
             bullet = Object.Instantiate(bulletPrefab);
+            bullet.AddComponent<Shot>();
+            bullet.AddComponent<BoxCollider2D>();
             if(facingRight){
                 bulletSide = new Vector3(6, 0.0f, 0.0f);
                 bullet.transform.position = transform.position + new Vector3(1.0f, 0.0f, 0.0f);
