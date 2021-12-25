@@ -16,8 +16,18 @@ public class Shot : MonoBehaviour
         
     }
     private void OnCollisionEnter2D(Collision2D other) {
+        Destroy (gameObject);
         if(other.gameObject.tag == "Enemy"){
-            Destroy(other.gameObject);
+            other.gameObject.GetComponent<PatrollingEgg>().life -= 1;
+            if(other.gameObject.GetComponent<PatrollingEgg>().life == -3){
+                Destroy(other.gameObject);
+            }
+        }
+        else if(other.gameObject.tag == "EnemyJump"){
+            other.gameObject.GetComponent<PatrollingEggJump>().life -= 1;
+            if(other.gameObject.GetComponent<PatrollingEggJump>().life == -3){
+                Destroy(other.gameObject);
+            }
         }
     }
 }

@@ -8,12 +8,13 @@ public class PatrollingEgg : MonoBehaviour
     public bool facingRight = true;
 
     private float xScale;
+    public int life = 0;
 
     public Animator animator;
 
     public float distance = 5;
 
-    private int lastRecalculation = 200;
+    private int lastRecalculation = 400;
 
 
     // Start is called before the first frame update

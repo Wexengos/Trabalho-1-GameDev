@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy
   - Shot
+  - floor
+  - EnemyJump
   layers:
   - Default
   - TransparentFX
