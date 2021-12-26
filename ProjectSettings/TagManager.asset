@@ -8,6 +8,7 @@ TagManager:
   - Shot
   - floor
   - EnemyJump
+  - Portal
   layers:
   - Default
   - TransparentFX

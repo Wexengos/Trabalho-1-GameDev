@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BasicMovement : MonoBehaviour
 {
@@ -81,6 +82,9 @@ public class BasicMovement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.tag == "Enemy"){
             ComputeDeath();
+        }
+        else if(other.gameObject.tag == "Portal"){
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
     //Há uma caixa de colisão com um 'Is Trigger' que envolve o jogador, que é ativado toda vez que este colide.
