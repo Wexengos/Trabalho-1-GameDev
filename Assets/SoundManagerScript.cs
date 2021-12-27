@@ -25,9 +25,11 @@ public class SoundManagerScript : MonoBehaviour
     public static void PlaySound(string clip){
         switch(clip) {
             case "Shot":
+                audioSrc.volume = 0.8f;
                 audioSrc.PlayOneShot(shotSound);
                 break;
             case "Teleporte":
+                audioSrc.volume = 0.5f;
                 audioSrc.PlayOneShot(TeleportSound);
                 break;
             case "Jump":
