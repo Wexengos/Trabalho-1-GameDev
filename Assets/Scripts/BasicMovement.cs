@@ -35,6 +35,10 @@ public class BasicMovement : MonoBehaviour
             return xScale;
     }
 
+    void Start(){
+        // SoundManagerScript.PlaySound("Teleporte");
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -72,6 +76,7 @@ public class BasicMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
+            SoundManagerScript.PlaySound("Jump");
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, jumpHeight), ForceMode2D.Force);  //checa se o personagem está no chão,
                                                                                                      //se sim, o botão de espaço o faz pular.
         }
@@ -80,13 +85,14 @@ public class BasicMovement : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        if(other.gameObject.tag == "Enemy"){
+        if(other.gameObject.tag == "Enemy" || other.gameObject.tag == "EnemyJump"){
             ComputeDeath();
         }
         else if(other.gameObject.tag == "Portal"){
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
+
     //Há uma caixa de colisão com um 'Is Trigger' que envolve o jogador, que é ativado toda vez que este colide.
     void OnTriggerEnter2D()
     {
