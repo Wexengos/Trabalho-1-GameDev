@@ -5,7 +5,7 @@ using UnityEngine;
 public class SoundManagerScript : MonoBehaviour
 {
 
-    public static AudioClip shotSound, TeleportSound, jumpSound;
+    public static AudioClip shotSound, TeleportSound, jumpSound, EndingSound;
     static AudioSource audioSrc;
     // Start is called before the first frame update
     void Start()
@@ -13,6 +13,7 @@ public class SoundManagerScript : MonoBehaviour
         shotSound = Resources.Load<AudioClip>("Bolinha");
         TeleportSound = Resources.Load<AudioClip>("Teleporte");
         jumpSound = Resources.Load<AudioClip>("Jump");
+        EndingSound = Resources.Load<AudioClip>("Ending");
         audioSrc = GetComponent<AudioSource>();
     }
 
@@ -35,6 +36,10 @@ public class SoundManagerScript : MonoBehaviour
             case "Jump":
                 audioSrc.volume = 0.05f;
                 audioSrc.PlayOneShot(jumpSound);
+                break;
+            case "Ending":
+                audioSrc.volume = 0.05f;
+                audioSrc.PlayOneShot(EndingSound);
                 break;
         }
     }

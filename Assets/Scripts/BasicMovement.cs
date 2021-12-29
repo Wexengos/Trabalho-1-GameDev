@@ -89,7 +89,7 @@ public class BasicMovement : MonoBehaviour
             ComputeDeath();
         }
         else if(other.gameObject.tag == "Portal"){
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 
