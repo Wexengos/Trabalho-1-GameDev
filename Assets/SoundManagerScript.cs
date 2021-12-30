@@ -6,7 +6,7 @@ public class SoundManagerScript : MonoBehaviour
 {
 
     public static AudioClip shotSound, TeleportSound, jumpSound, EndingSound;
-    static AudioSource audioSrc;
+    public static AudioSource audioSrc;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +15,7 @@ public class SoundManagerScript : MonoBehaviour
         jumpSound = Resources.Load<AudioClip>("Jump");
         EndingSound = Resources.Load<AudioClip>("Ending");
         audioSrc = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
@@ -38,7 +39,6 @@ public class SoundManagerScript : MonoBehaviour
                 audioSrc.PlayOneShot(jumpSound);
                 break;
             case "Ending":
-                audioSrc.volume = 0.05f;
                 audioSrc.PlayOneShot(EndingSound);
                 break;
         }
