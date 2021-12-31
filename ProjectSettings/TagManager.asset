@@ -10,6 +10,7 @@ TagManager:
   - EnemyJump
   - Portal
   - Slash
+  - Boss
   layers:
   - Default
   - TransparentFX

@@ -6,15 +6,15 @@ public class Nito : MonoBehaviour
 {
 
     private float timer = 0.0f;
+    public int life = 0;
     public GameObject bulletPrefab;
+    public GameObject PortalPrefab;
     GameObject bullet;
-    GameObject[] rat;
     Vector3 bulletSide;
 
     // Start is called before the first frame update
     void Start()
     {
-        rat = GameObject.FindGameObjectsWithTag("Player");
     }
 
     // Update is called once per frame
