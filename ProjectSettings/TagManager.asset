@@ -9,6 +9,7 @@ TagManager:
   - floor
   - EnemyJump
   - Portal
+  - Slash
   layers:
   - Default
   - TransparentFX

@@ -88,6 +88,9 @@ public class BasicMovement : MonoBehaviour
         if(other.gameObject.tag == "Enemy" || other.gameObject.tag == "EnemyJump"){
             ComputeDeath();
         }
+        else if(other.gameObject.tag == "Slash"){
+            SceneManager.LoadScene(1);
+        } 
         else if(other.gameObject.tag == "Portal"){
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
