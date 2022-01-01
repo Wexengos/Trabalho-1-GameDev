@@ -19,6 +19,8 @@ public class BasicMovement : MonoBehaviour
     public int lives = 3;
     Vector3 bulletSide;
 
+    private float timer = 2.0f;
+
     float isFacingRight(float xScale)
     {                         //Verifica: se o personagem estiver se movendo para um lado e
         if (Input.GetAxis("Horizontal") < 0 && facingRight)
@@ -42,24 +44,27 @@ public class BasicMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Z)){
-            if(bullet){
-                Destroy(bullet);
-            }
-            bullet = Object.Instantiate(bulletPrefab);
-            bullet.AddComponent<Shot>();
-            bullet.AddComponent<BoxCollider2D>();
-            if(facingRight){
-                bulletSide = new Vector3(6, 0.0f, 0.0f);
-                bullet.transform.position = transform.position + new Vector3(1.0f, 0.0f, 0.0f);
-            }
-            else{
-                bulletSide = new Vector3(-6, 0.0f, 0.0f);
-                bullet.transform.position = transform.position + new Vector3(-1.0f, 0.0f, 0.0f);
+        if(RecalculateValue() || !bullet){
+            if(Input.GetKeyDown(KeyCode.Z)){
+                timer = 0;
+                if(bullet){
+                    Destroy(bullet);
+                }
+                bullet = Object.Instantiate(bulletPrefab);
+                bullet.AddComponent<Shot>();
+                bullet.AddComponent<BoxCollider2D>();
+                if(facingRight){
+                    bulletSide = new Vector3(6, 0.0f, 0.0f);
+                    bullet.transform.position = transform.position + new Vector3(1.0f, 0.0f, 0.0f);
+                }
+                else{
+                    bulletSide = new Vector3(-6, 0.0f, 0.0f);
+                    bullet.transform.position = transform.position + new Vector3(-1.0f, 0.0f, 0.0f);
+                }
             }
         }
         if(bullet){
-            bullet.transform.position = bullet.transform.position + bulletSide * Time.deltaTime;
+            bullet.transform.position = bullet.transform.position + bulletSide * Time.deltaTime * 1.3f;
         }
 
         float xScale = transform.localScale.x;
@@ -123,5 +128,15 @@ public class BasicMovement : MonoBehaviour
         transform.position = new Vector3(-5.28f, -2.42f, 0.0f);
         if (lives > 0)
             lives--;
+    }
+
+    public bool RecalculateValue()
+    {
+        timer += Time.deltaTime;
+        Debug.Log(timer);
+        if(timer > 1.0f){
+            return true;
+        }
+        return false;
     }
 }
