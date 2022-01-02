@@ -8,9 +8,7 @@ public class Nito : MonoBehaviour
     private float timer = 0.0f;
     public int life = 0;
     public GameObject bulletPrefab;
-    public GameObject PortalPrefab;
     public GameObject bullet;
-    Vector3 bulletSide;
 
     // Start is called before the first frame update
     void Start()
@@ -22,11 +20,7 @@ public class Nito : MonoBehaviour
     {
             if (RecalculateValue()){
                 bullet = Object.Instantiate(bulletPrefab);
-                bulletSide = new Vector3(-12, 0.0f, 0.0f);
-                bullet.transform.position = transform.position + new Vector3(-2.0f, -1.0f, 0.0f);
-            }
-            if(bullet){
-                bullet.transform.position = bullet.transform.position + bulletSide * Time.deltaTime;
+                bullet.GetComponent<ShotBoss>().bossPosition = transform.position;
             }
 
     }

@@ -576,7 +576,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1314263212387021630, guid: ad1014ed80a51244e80c66bc63ed5ba7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.33
+      value: -2.42
       objectReference: {fileID: 0}
     - target: {fileID: 1314263212387021630, guid: ad1014ed80a51244e80c66bc63ed5ba7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4350,7 +4350,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1519699134}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.33, y: -1.25, z: 0}
+  m_LocalPosition: {x: 4.15, y: -1.35, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4370,7 +4370,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 8
   bulletPrefab: {fileID: 8560384099350101620, guid: 5e4a22af8b2ef204497e3033e08f3cac, type: 3}
-  PortalPrefab: {fileID: 1314263212387021617, guid: ad1014ed80a51244e80c66bc63ed5ba7, type: 3}
   bullet: {fileID: 0}
 --- !u!1 &1740493877
 GameObject:
