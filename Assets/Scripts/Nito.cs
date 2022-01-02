@@ -9,7 +9,7 @@ public class Nito : MonoBehaviour
     public int life = 0;
     public GameObject bulletPrefab;
     public GameObject PortalPrefab;
-    GameObject bullet;
+    public GameObject bullet;
     Vector3 bulletSide;
 
     // Start is called before the first frame update
@@ -22,8 +22,6 @@ public class Nito : MonoBehaviour
     {
             if (RecalculateValue()){
                 bullet = Object.Instantiate(bulletPrefab);
-                bullet.AddComponent<Shot>();
-                bullet.AddComponent<BoxCollider2D>();
                 bulletSide = new Vector3(-12, 0.0f, 0.0f);
                 bullet.transform.position = transform.position + new Vector3(-2.0f, -1.0f, 0.0f);
             }

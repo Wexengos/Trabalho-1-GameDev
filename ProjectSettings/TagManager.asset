@@ -48,6 +48,9 @@ TagManager:
   - name: BG
     uniqueID: 3318337629
     locked: 0
+  - name: Portal
+    uniqueID: 3528298561
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
