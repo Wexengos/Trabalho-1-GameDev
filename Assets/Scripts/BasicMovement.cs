@@ -76,12 +76,9 @@ public class BasicMovement : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        if(other.gameObject.tag == "Enemy" || other.gameObject.tag == "EnemyJump"){
-            ComputeDeath();
-        }
-        else if(other.gameObject.tag == "Slash"){
+        if(other.gameObject.tag == "Enemy" || other.gameObject.tag == "EnemyJump" || other.gameObject.tag == "Slash" ){
             SceneManager.LoadScene(1);
-        } 
+        }
         else if(other.gameObject.tag == "Portal"){
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
@@ -105,16 +102,16 @@ public class BasicMovement : MonoBehaviour
     {
         if (transform.position.y <= abyss)
         {
-            ComputeDeath();
+            SceneManager.LoadScene(1);
         }
     }
 
-    void ComputeDeath()
-    {
-        transform.position = new Vector3(-5.28f, -2.42f, 0.0f);
-        if (lives > 0)
-            lives--;
-    }
+    // void ComputeDeath()
+    // {
+    //     transform.position = new Vector3(-5.28f, -2.42f, 0.0f);
+    //     if (lives > 0)
+    //         lives--;
+    // }
 
     public bool RecalculateValue()
     {

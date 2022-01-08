@@ -9,6 +9,7 @@ public class Nito : MonoBehaviour
     public int life = 0;
     public GameObject bulletPrefab;
     public GameObject bullet;
+    public SpriteRenderer sprite;
 
     // Start is called before the first frame update
     void Start()
@@ -33,5 +34,24 @@ public class Nito : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        if(other.gameObject.tag == "Shot"){
+            life -= 1;
+            if(life == 0){
+                Destroy(gameObject);
+                AudioSource source = GameObject.FindGameObjectWithTag("Sound").GetComponent<AudioSource>();
+                source.Stop();
+            }
+            StartCoroutine(flashRed());
+        }
+    }
+
+    public IEnumerator flashRed()
+    {
+        sprite.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        sprite.color = Color.white;
     }
 }

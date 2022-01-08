@@ -12,7 +12,7 @@ public class ShotBoss : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SoundManagerScript.PlaySound("Shot");
+        SoundManagerScript.PlaySound("Slash");
         bulletSide = new Vector3(-12, 0.0f, 0.0f);
         transform.position = bossPosition + new Vector3(-2.0f, -1.0f, 0.0f);
     }

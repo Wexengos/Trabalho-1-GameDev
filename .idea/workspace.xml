@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e7a6fe5d-6701-4707-846c-e2156d936844" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MenuScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MenuScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MenuObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MenuObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MenuObject.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MenuObject.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Dark Souls III Soundtrack OST Vordt of the Boreal Valley_160k (mp3cut.net).mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Dark Souls III Soundtrack OST Vordt of the Boreal Valley_160k (mp3cut.net).mp3.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Boss.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Boss.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Shot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Shot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ShotBoss.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ShotBoss.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/SoundManagerScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SoundManagerScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/scrip.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/scrip.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +37,11 @@
       <option name="presentableId" value="Default" />
       <updated>1640625991377</updated>
       <workItem from="1640625992627" duration="5000" />
+      <workItem from="1641486279518" duration="686000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>

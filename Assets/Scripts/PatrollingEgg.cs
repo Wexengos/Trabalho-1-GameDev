@@ -7,8 +7,10 @@ public class PatrollingEgg : MonoBehaviour
     public float moveSpeed = 3.0f;
     public bool facingRight = true;
 
+    public SpriteRenderer sprite;
+
     private float xScale;
-    public int life = 0;
+    public int life;
 
     public Animator animator;
 
@@ -61,5 +63,21 @@ public class PatrollingEgg : MonoBehaviour
             return xScale;
     }
 
+    private void OnCollisionEnter2D(Collision2D other) {
+        if(other.gameObject.tag == "Shot"){
+            life -= 1;
+            if(life == 0){
+                Destroy(gameObject);
+            }
+            StartCoroutine(flashRed());
+        }
+    }
+
+    public IEnumerator flashRed()
+    {
+        sprite.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        sprite.color = Color.white;
+    }
 
 }

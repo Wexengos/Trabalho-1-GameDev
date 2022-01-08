@@ -11,6 +11,7 @@ TagManager:
   - Portal
   - Slash
   - Boss
+  - Sound
   layers:
   - Default
   - TransparentFX

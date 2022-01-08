@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7199193732151169631}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Shot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122,3 +122,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f75476723f658f4285f1a5011e26ebb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  facingRight: 1
+  ratPosition: {x: 0, y: 0, z: 0}

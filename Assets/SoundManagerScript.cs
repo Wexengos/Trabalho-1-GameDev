@@ -5,12 +5,13 @@ using UnityEngine;
 public class SoundManagerScript : MonoBehaviour
 {
 
-    public static AudioClip shotSound, TeleportSound, jumpSound, EndingSound;
+    public static AudioClip shotSound, TeleportSound, jumpSound, EndingSound, slashSound;
     public static AudioSource audioSrc;
     // Start is called before the first frame update
     void Start()
     {
         shotSound = Resources.Load<AudioClip>("Bolinha");
+        slashSound = Resources.Load<AudioClip>("Slash");
         TeleportSound = Resources.Load<AudioClip>("Teleporte");
         jumpSound = Resources.Load<AudioClip>("Jump");
         EndingSound = Resources.Load<AudioClip>("Ending");
@@ -37,6 +38,9 @@ public class SoundManagerScript : MonoBehaviour
                 break;
             case "Ending":
                 audioSrc.PlayOneShot(EndingSound);
+                break;
+            case "Slash":
+                audioSrc.PlayOneShot(slashSound);
                 break;
         }
     }

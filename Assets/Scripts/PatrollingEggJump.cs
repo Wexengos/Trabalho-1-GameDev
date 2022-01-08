@@ -8,6 +8,9 @@ public class PatrollingEggJump : MonoBehaviour
     public int life = 0;
     private float xScale;
     private float timer = 0.0f;
+
+    public SpriteRenderer sprite;
+
     void Start()
     {
         xScale = 1;
@@ -27,5 +30,22 @@ public class PatrollingEggJump : MonoBehaviour
             xScale *= -1;
             timer = 0;
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        if(other.gameObject.tag == "Shot"){
+            life -= 1;
+            if(life == 0){
+                Destroy(gameObject);
+            }
+            StartCoroutine(flashRed());
+        }
+    }
+
+    public IEnumerator flashRed()
+    {
+        sprite.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        sprite.color = Color.white;
     }
 }
