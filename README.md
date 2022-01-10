@@ -1,12 +1,13 @@
 # Trabalho-1-GameDev
-# [Título do Game] - _Rato Tenista?_
-O Restaurante Universitário da UFLR foi tomado por ovos - crus e preparados - que resolveram se vingar dos humanos e todos os anos de opressáo. 
+# **Universiratos**
 
-Rato Tenista causou muitas travessuras no Bosque no passado. Trancado será no RU e não sairá até que cada ovo, gema e o que for estiver devidamente derrotado.
+Controle o Rato e detenha os terríveis invasores.
+
+Rato Tenista causou muitas travessuras no Bosque no passado... sua hora de redenção chegou.
 
 ## Controles
 
-...
+Utilize as setas do teclado/WASD para se movimentar, Espaço para pular e Z para atirar.
 
 ## Créditos
 
