@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class BasicMovement : MonoBehaviour
 {
     public bool facingRight = true;  //O personagem está olhando para a direita?
-
+    private GameObject text;
     public GameObject bulletPrefab;
     public float jumpHeight;
     private bool isGrounded;  //O personagem está num chão?
@@ -39,6 +39,7 @@ public class BasicMovement : MonoBehaviour
 
     void Start(){
         // SoundManagerScript.PlaySound("Teleporte");
+        text = GameObject.FindGameObjectWithTag("life");
     }
 
     // Update is called once per frame
@@ -76,8 +77,8 @@ public class BasicMovement : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        if(other.gameObject.tag == "Enemy" || other.gameObject.tag == "EnemyJump" || other.gameObject.tag == "Slash" ){
-            SceneManager.LoadScene(1);
+        if(other.gameObject.tag == "Enemy" || other.gameObject.tag == "EnemyJump" || other.gameObject.tag == "Slash" ) {
+            ComputeDeath();
         }
         else if(other.gameObject.tag == "Portal"){
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -102,16 +103,23 @@ public class BasicMovement : MonoBehaviour
     {
         if (transform.position.y <= abyss)
         {
-            SceneManager.LoadScene(1);
+            ComputeDeath();
         }
     }
 
-    // void ComputeDeath()
-    // {
-    //     transform.position = new Vector3(-5.28f, -2.42f, 0.0f);
-    //     if (lives > 0)
-    //         lives--;
-    // }
+    void ComputeDeath()
+    {
+        
+        if (lives > 0){
+            transform.position = new Vector3(-5.28f, -2.42f, 0.0f);
+            lives--;
+            text.GetComponent<UnityEngine.UI.Text>().text = (lives-1).ToString();
+        }
+        else SceneManager.LoadScene(0);
+            
+
+        
+    }
 
     public bool RecalculateValue()
     {

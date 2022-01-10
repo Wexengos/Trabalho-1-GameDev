@@ -12,6 +12,7 @@ TagManager:
   - Slash
   - Boss
   - Sound
+  - life
   layers:
   - Default
   - TransparentFX
