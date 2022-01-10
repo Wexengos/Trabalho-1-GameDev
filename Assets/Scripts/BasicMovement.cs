@@ -7,6 +7,7 @@ public class BasicMovement : MonoBehaviour
 {
     public bool facingRight = true;  //O personagem está olhando para a direita?
     private GameObject text;
+    public SpriteRenderer sprite;
     public GameObject bulletPrefab;
     public float jumpHeight;
     private bool isGrounded;  //O personagem está num chão?
@@ -16,7 +17,7 @@ public class BasicMovement : MonoBehaviour
     public Animator animator;
     GameObject bullet;
 
-    public int lives = 3;
+    public int lives = 2;
     Vector3 bulletSide;
 
     private float timer = 2.0f;
@@ -40,6 +41,8 @@ public class BasicMovement : MonoBehaviour
     void Start(){
         // SoundManagerScript.PlaySound("Teleporte");
         text = GameObject.FindGameObjectWithTag("life");
+        text.GetComponent<UnityEngine.UI.Text>().text = (PlayerStats.Lives-1).ToString();
+        Debug.Log(PlayerStats.Lives);
     }
 
     // Update is called once per frame
@@ -78,6 +81,7 @@ public class BasicMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.tag == "Enemy" || other.gameObject.tag == "EnemyJump" || other.gameObject.tag == "Slash" ) {
+            StartCoroutine(flashRed());
             ComputeDeath();
         }
         else if(other.gameObject.tag == "Portal"){
@@ -110,15 +114,24 @@ public class BasicMovement : MonoBehaviour
     void ComputeDeath()
     {
         
-        if (lives > 0){
-            transform.position = new Vector3(-5.28f, -2.42f, 0.0f);
+        if (lives >1){
+            if(SceneManager.GetActiveScene().buildIndex != 2)
+                transform.position = new Vector3(-5.28f, -2.42f, 0.0f);
             lives--;
+            PlayerStats.Lives = lives;  
+            if(lives == 1) text.GetComponent<UnityEngine.UI.Text>().color = Color.red;
             text.GetComponent<UnityEngine.UI.Text>().text = (lives-1).ToString();
         }
         else SceneManager.LoadScene(0);
             
 
         
+    }
+    public IEnumerator flashRed()
+    {
+        sprite.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        sprite.color = Color.white;
     }
 
     public bool RecalculateValue()

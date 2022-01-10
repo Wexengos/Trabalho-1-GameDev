@@ -10,7 +10,7 @@ public class CameraScript : MonoBehaviour
     void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-
+        PlayerStats.Lives = 3;
         
     }
 

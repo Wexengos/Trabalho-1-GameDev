@@ -8,6 +8,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 55860582883820507, guid: 71d393f95f2405a418beabf1b879a662, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 55860582883820507, guid: 71d393f95f2405a418beabf1b879a662, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
       value: 9.64
       objectReference: {fileID: 0}
@@ -97,6 +101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7199193732151169631, guid: 71d393f95f2405a418beabf1b879a662, type: 3}
+    - {fileID: 55860582883820507, guid: 71d393f95f2405a418beabf1b879a662, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 71d393f95f2405a418beabf1b879a662, type: 3}
 --- !u!1 &8560384099350101620 stripped
 GameObject:
@@ -141,3 +146,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce76df50ceec0324e968f60d3f1b32a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossPosition: {x: 0, y: 0, z: 0}

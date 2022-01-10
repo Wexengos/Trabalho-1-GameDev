@@ -5,9 +5,12 @@ using UnityEngine;
 public class LifeCounter : MonoBehaviour
 {
     private GameObject player;
+    private GameObject text;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        text = GameObject.FindGameObjectWithTag("life");
+        text.GetComponent<UnityEngine.UI.Text>().text = (PlayerStats.Lives-1).ToString();
     }
 
     // Update is called once per frame
